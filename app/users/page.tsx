@@ -1,7 +1,7 @@
 import React from 'react'
 import UserTable from './UserTable';
 
-const UserPage = async () => {
+const UsersPage = async () => {
 
   return (
     <>
@@ -11,4 +11,4 @@ const UserPage = async () => {
   );
 }
 
-export default UserPage;
+export default UsersPage;
