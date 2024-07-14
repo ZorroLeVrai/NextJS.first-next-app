@@ -6,9 +6,11 @@ interface Props {
 }
 
 const ProductPage = ({ params: { slug }, searchParams: { sortOrder } }: Props) => {
+  const slugStr = `[${slug.join(", ")}]`;
+
   return (
     <>
-      <div>ProductPage {slug} </div>
+      <div>ProductPage {slugStr} </div>
       <div>Parameter sortOrder: {sortOrder}</div>
     </>
   )
