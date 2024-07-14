@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface Props {
-  params: { id: number; photoId: number }
+  params: { id: string; photoId: string }
 }
 
 const PhotoPage = ({ params: { id, photoId } }: Props) => {

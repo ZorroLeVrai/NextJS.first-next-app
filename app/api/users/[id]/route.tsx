@@ -2,14 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import schema from "../schema";
 
 interface Props {
-  params: { id: number }
+  params: { id: string }
 }
 
 export function GET(request: NextRequest, { params: { id } }: Props) {
-  if (id > 10)
+  const numberId = Number(id);
+  if (isNaN(numberId) || numberId > 10)
     return NextResponse.json({ error: "User not found" }, { status: 404 });
 
-  return NextResponse.json({ id, name: `Toto${id}` });
+  return NextResponse.json({ numberId, name: `Toto_${id}` });
 }
 
 export async function PUT(request: NextRequest, { params: { id } }: Props) {
@@ -18,14 +19,16 @@ export async function PUT(request: NextRequest, { params: { id } }: Props) {
   if (!validation.success)
     return NextResponse.json(validation.error.errors, { status: 400 });
 
-  if (id > 10)
+  const numberId = Number(id);
+  if (isNaN(numberId) || numberId > 10)
     return NextResponse.json({ error: "User not found" }, { status: 404 });
 
   return NextResponse.json({ id: 1, name: body.name });
 }
 
 export function DELETE(request: NextRequest, { params: { id } }: Props) {
-  if (id > 10)
+  const numberId = Number(id);
+  if (isNaN(numberId) || numberId > 10)
     return NextResponse.json({ error: "User not found" }, { status: 404 });
 
   return NextResponse.json({});
